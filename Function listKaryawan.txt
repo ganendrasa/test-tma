@@ -1,0 +1,12 @@
+DELIMITER $$
+ 
+CREATE PROCEDURE listKaryawan()
+BEGIN
+    SELECT nama, jabatan, penilaian,
+    CASE
+    WHEN penilaian >= 50 AND penilaian <= 70 THEN 'B'
+        WHEN penilaian >= 71 AND penilaian <= 90 THEN 'A'
+        WHEN penilaian >= 91 AND penilaian <= 100 THEN 'A+'
+    END AS grade
+    FROM karyawan;
+END$$
